@@ -11,6 +11,9 @@ myColors = [];
 MAX_OCL = 200;
 var data = new Array();
 
+//To prevent scolling the page
+window.onwheel = function() { return false; }
+
 function update(){
 	d = new Date();
 	t = d.getTime()/1000;
@@ -147,7 +150,7 @@ document.getElementById("demowheel").innerHTML = 0;
 document.getElementById("democlick").innerHTML = 0;
 
 document.addEventListener("wheel", function(ev){
-	wheelsum= wheelsum-ev.deltaY/3
+	wheelsum= wheelsum-ev.deltaY/10
 	osc.frequency.value = 440*Math.pow(1.1,wheelsum)
 	if (wheelsum==0)
 	{
